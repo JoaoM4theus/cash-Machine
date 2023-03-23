@@ -30,11 +30,11 @@ func cashMachine(_ value: Int, bankNotes: [Banknotes]) -> String {
     }
 
     var bankNotesCopy = bankNotes
-    if value >= 50 {
+    if value >= 50 && !((value - 50) % 2 == 1) {
         bankNotesCopy.append(.fifty)
         return cashMachine(value - 50, bankNotes: bankNotesCopy)
     }
-    if value >= 10 {
+    if value >= 10 && !((value - 10) % 2 == 1) {
         bankNotesCopy.append(.ten)
         return cashMachine(value - 10, bankNotes: bankNotesCopy)
     }
